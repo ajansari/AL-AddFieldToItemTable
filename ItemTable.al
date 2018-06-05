@@ -6,6 +6,10 @@ tableextension 50101 ItemExtension extends Item
        {
            CaptionML=ENU='Harmonized Code';     
        } 
+       field(50102; "Long Description"; Text[250])
+       {
+           CaptionML=ENU='Verbose Description';
+       }
     }
     
 }
