@@ -1,0 +1,22 @@
+{
+  "id": "7da7777d-0bb4-4630-8889-5f89a5bf8df5",
+  "name": "ALAddNewField",
+  "publisher": "D365 BC Hub",
+  "brief": "",
+  "description": "",
+  "version": "1.0.0.0",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "capabilities": [],
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "12.0.0.0",
+  "application": "12.0.0.0",
+  "idRange": {
+    "from": 50100,
+    "to": 50149
+  }
+}
