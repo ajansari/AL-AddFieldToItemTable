@@ -6,7 +6,7 @@ pageextension 50101 ItemCardExtension extends "Item Card"
         {
             field("Harmonized Code"; "Harmonized Code")
             {
-                ToolTipML = ENU = 'Enter the industry harmonized code in this field.'; 
+                ToolTipML = ENU = 'Enter the alphanumeric industry harmonized code. 20 character limit.'; 
                 ApplicationArea = All;
             }
             field("Long Description"; "Long Description")
