@@ -4349,6 +4349,12 @@ End Function
         <Field Name="Item__Shelf_No__">
           <DataField>Item__Shelf_No__</DataField>
         </Field>
+        <Field Name="Item_Harmonized_Code">
+          <DataField>Item_Harmonized_Code</DataField>
+        </Field>
+        <Field Name="Item_Verbose_Description">
+          <DataField>Item_Verbose_Description</DataField>
+        </Field>
         <Field Name="Item__Substitutes_Exist_">
           <DataField>Item__Substitutes_Exist_</DataField>
         </Field>

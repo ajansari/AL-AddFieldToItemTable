@@ -47,6 +47,12 @@ report 50101 "Item List v2"
             column(Item__Shelf_No__;"Shelf No.")
             {
             }
+            column(Item_Harmonized_Code;"Harmonized Code")
+            {
+            }
+            column(Item_Verbose_Description;"Long Description")
+            {
+            }
             column(Item__Substitutes_Exist_;FORMAT("Substitutes Exist"))
             {
             }
