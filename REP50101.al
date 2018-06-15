@@ -4,7 +4,7 @@ report 50101 "Item List v2"
 
     DefaultLayout = RDLC;
     RDLCLayout = './Item List v2.rdlc';
-    Caption = 'Item List';
+    Caption = 'Item List Repot';
 
     dataset
     {
