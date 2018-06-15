@@ -16,4 +16,25 @@ pageextension 50101 ItemCardExtension extends "Item Card"
             }
         }
     }
+    actions
+    {
+        addlast(Reporting)
+        {
+            action("Item List Report")
+            {
+                Caption = 'Item List Report';
+                ApplicationArea = All;
+                Image = "Report";
+                
+                trigger OnAction()
+                begin
+                    ItemListv2.Run;
+                    CLEAR(ItemListv2); 
+                end;
+            }        
+        }
+            
+    }
+    var
+        ItemListv2 : Report "Item List v2";
 }

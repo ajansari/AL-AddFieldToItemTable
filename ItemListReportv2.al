@@ -2,7 +2,8 @@ report 50101 "Item List v2"
 {
     // version D365BCHUB1.01
 
-    DefaultLayout = RDLC;
+    DefaultLayout = Word;
+    WordLayout = './Item Report.docx';
     RDLCLayout = './Item List v2.rdlc';
     Caption = 'Item List Repot';
 
