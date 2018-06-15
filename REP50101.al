@@ -1,12 +1,10 @@
 report 50101 "Item List v2"
 {
+    // version D365BCHUB1.01
 
     DefaultLayout = RDLC;
     RDLCLayout = './Item List v2.rdlc';
-    CaptionML = ENU='Item List',
-                ESM='Lista de productos',
-                FRC='Liste des articles',
-                ENC='Item List';
+    Caption = 'Item List';
 
     dataset
     {
@@ -20,9 +18,6 @@ report 50101 "Item List v2"
             {
             }
             column(CompanyInformation_Name;CompanyInformation.Name)
-            {
-            }
-            column(CurrReport_PAGENO;CurrReport.PAGENO)
             {
             }
             column(USERID;USERID)
@@ -440,7 +435,7 @@ report 50101 "Item List v2"
                 begin
                     if not MoreInfo or not UseSKU or not Item."Stockkeeping Unit Exists" then
                       CurrReport.BREAK;
-                    CurrReport.CREATETOTALS(TotalValue);
+                    //CurrReport.CREATETOTALS(TotalValue); -- Commented out because function is deprecated (AJ)
                 end;
             }
 
@@ -476,8 +471,8 @@ report 50101 "Item List v2"
 
             trigger OnPreDataItem();
             begin
-                CurrReport.CREATETOTALS(TotalValue);
-                NewTotalValue := 0;
+                //CurrReport.CREATETOTALS(TotalValue); -- Commented out because function CREATETOTALS is deprecated (AJ)
+                //NewTotalValue := 0; -- Comented out because function CREATETOTALS is deprecated (AJ)
             end;
         }
     }
@@ -492,16 +487,10 @@ report 50101 "Item List v2"
             {
                 group(Options)
                 {
-                    CaptionML = ENU='Options',
-                                ESM='Opciones',
-                                FRC='Options',
-                                ENC='Options';
+                    Caption = 'Options';
                     field(MoreInfo;MoreInfo)
                     {
-                        CaptionML = ENU='Include Additional Info.',
-                                    ESM='Incluir info. adicional',
-                                    FRC='Inclure info. additionnelle',
-                                    ENC='Include Additional Info.';
+                        Caption = 'Include Additional Info.';
 
                         trigger OnValidate();
                         begin
@@ -510,10 +499,7 @@ report 50101 "Item List v2"
                     }
                     field(UseSKU;UseSKU)
                     {
-                        CaptionML = ENU='Use Stockkeeping Unit',
-                                    ESM='Utiliz. unidad almacen.',
-                                    FRC='Utiliser l''unité de contrôle des stocks',
-                                    ENC='Use Stockkeeping Unit';
+                        Caption = 'Use Stockkeeping Unit';
                         Enabled = UseSKUEnable;
                     }
                 }
@@ -552,29 +538,29 @@ report 50101 "Item List v2"
         MoreInfo : Boolean;
         TotalValue : Decimal;
         SeeComment : Text[30];
-        Text000 : TextConst ENU='(See Comment)',ESM='(Consult comen)',FRC='(Voir comment.)',ENC='(See Comment)';
+        Text000 : Label '(See Comment)';
         UseSKU : Boolean;
-        Text001 : TextConst ENU='(See SKU Note)',ESM='(Ver comnt. UA)',FRC='(Cf co s/ p st)',ENC='(See SKU Note)';
+        Text001 : Label '(See SKU Note)';
         NewTotalValue : Decimal;
         [InDataSet]
         UseSKUEnable : Boolean;
-        Item_ListCaptionLbl : TextConst ENU='Item List',ESM='Lista de productos',FRC='Liste des articles',ENC='Item List';
-        CurrReport_PAGENOCaptionLbl : TextConst ENU='Page',ESM='Pág.',FRC='Page',ENC='Page';
-        Item_CommentCaptionLbl : TextConst ENU='Comment',ESM='Comentario',FRC='Commentaire',ENC='Comment';
-        TotalValueCaptionLbl : TextConst ENU='Inventory Value ($)',ESM='Valor inventario ($)',FRC='Valeur de l''inventaire ($)',ENC='Inventory Value ($)';
-        Item__Substitutes_Exist_CaptionLbl : TextConst ENU='Substitutes Exist',ESM='Existe sustituto',FRC='Substituts existent',ENC='Substitutes Exist';
-        Item_BlockedCaptionLbl : TextConst ENU='Blocked',ESM='Bloqueado',FRC='Bloqué',ENC='Blocked';
-        Item__No___Control49CaptionLbl : TextConst ENU='Item No.',ESM='Nº producto',FRC='N° d''article',ENC='Item No.';
-        TotalValue_Control57CaptionLbl : TextConst ENU='Inventory Value ($)',ESM='Valor inventario ($)',FRC='Valeur de l''inventaire ($)',ENC='Inventory Value ($)';
-        Alt_CaptionLbl : TextConst ENU='Alt:',ESM='Alt:',FRC='Alt :',ENC='Alt:';
-        Ven_CaptionLbl : TextConst ENU='Ven:',ESM='Prov:',FRC='Fourn :',ENC='Ven:';
-        Alt_Caption_Control61Lbl : TextConst ENU='Alt:',ESM='Alt:',FRC='Alt :',ENC='Alt:';
-        Ven_Caption_Control67Lbl : TextConst ENU='Ven:',ESM='Prov:',FRC='Fourn :',ENC='Ven:';
-        Item_Variant_CodeCaptionLbl : TextConst ENU='Variant',ESM='Variante',FRC='Variante',ENC='Variant';
-        Item_Variant_DescriptionCaptionLbl : TextConst ENU='Variant Description',ESM='Descripción variante',FRC='Description de variante',ENC='Variant Description';
-        Report_TotalCaptionLbl : TextConst ENU='Report Total',ESM='Total informe',FRC='Total du rapport',ENC='Report Total';
-        Alt_Caption_Control1480012Lbl : TextConst ENU='Alt:',ESM='Alt:',FRC='Alt :',ENC='Alt:';
-        Ven_Caption_Control1480020Lbl : TextConst ENU='Ven:',ESM='Prov:',FRC='Fourn :',ENC='Ven:';
+        Item_ListCaptionLbl : Label 'Item List';
+        CurrReport_PAGENOCaptionLbl : Label 'Page';
+        Item_CommentCaptionLbl : Label 'Comment';
+        TotalValueCaptionLbl : Label 'Inventory Value ($)';
+        Item__Substitutes_Exist_CaptionLbl : Label 'Substitutes Exist';
+        Item_BlockedCaptionLbl : Label 'Blocked';
+        Item__No___Control49CaptionLbl : Label 'Item No.';
+        TotalValue_Control57CaptionLbl : Label 'Inventory Value ($)';
+        Alt_CaptionLbl : Label 'Alt:';
+        Ven_CaptionLbl : Label 'Ven:';
+        Alt_Caption_Control61Lbl : Label 'Alt:';
+        Ven_Caption_Control67Lbl : Label 'Ven:';
+        Item_Variant_CodeCaptionLbl : Label 'Variant';
+        Item_Variant_DescriptionCaptionLbl : Label 'Variant Description';
+        Report_TotalCaptionLbl : Label 'Report Total';
+        Alt_Caption_Control1480012Lbl : Label 'Alt:';
+        Ven_Caption_Control1480020Lbl : Label 'Ven:';
 
     [Scope('Personalization')]
     procedure AnyVariants() : Boolean;
