@@ -489,6 +489,7 @@ report 50101 "Item List v2"
                     field(MoreInfo;MoreInfo)
                     {
                         Caption = 'Include Additional Info.';
+                        ApplicationArea = All;
 
                         trigger OnValidate();
                         begin
@@ -499,6 +500,7 @@ report 50101 "Item List v2"
                     {
                         Caption = 'Use Stockkeeping Unit';
                         Enabled = UseSKUEnable;
+                        ApplicationArea = All;
                     }
                 }
             }
