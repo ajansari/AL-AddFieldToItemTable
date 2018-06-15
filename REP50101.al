@@ -435,8 +435,7 @@ report 50101 "Item List v2"
                 begin
                     if not MoreInfo or not UseSKU or not Item."Stockkeeping Unit Exists" then
                       CurrReport.BREAK;
-                    //CurrReport.CREATETOTALS(TotalValue); -- Commented out because function is deprecated (AJ)
-                end;
+                 end;
             }
 
             trigger OnAfterGetRecord();
@@ -471,8 +470,7 @@ report 50101 "Item List v2"
 
             trigger OnPreDataItem();
             begin
-                //CurrReport.CREATETOTALS(TotalValue); -- Commented out because function CREATETOTALS is deprecated (AJ)
-                //NewTotalValue := 0; -- Comented out because function CREATETOTALS is deprecated (AJ)
+                NewTotalValue := 0;
             end;
         }
     }
